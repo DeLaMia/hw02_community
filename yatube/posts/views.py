@@ -1,16 +1,11 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Post, Group
-# Create your views here.
+
+LAST_10_POSTS: int = 10
 
 
-# Главная страница
 def index(request):
-    # Одна строка вместо тысячи слов на SQL:
-    # в переменную posts будет сохранена выборка из 10 объектов модели Post,
-    # отсортированных по полю pub_date
-    # по убыванию (от больших значений к меньшим)
-    posts = Post.objects.order_by('-pub_date')[:10]
-    # В словаре context отправляем информацию в шаблон
+    posts = Post.objects.all()[:LAST_10_POSTS]
     context = {
         'posts': posts,
     }
@@ -19,8 +14,7 @@ def index(request):
 
 def group_posts(request, slug):
     group = get_object_or_404(Group, slug=slug)
-
-    posts = Post.objects.filter(group=group).order_by('-pub_date')[:10]
+    posts = (group.posts.all()[:LAST_10_POSTS])
     context = {
         'group': group,
         'posts': posts,
