@@ -1,7 +1,5 @@
 {% load static %} <!DOCTYPE html>
-<!-- Используется html 5 версии -->
 <html lang="ru">
-  <!-- Язык сайта - русский -->
   <head>
     {% include "includes/head.html" %}
     <title>{% block title %}{% endblock %}</title>
@@ -9,12 +7,7 @@
   <body>
     <header>{% include "includes/header.html" %}</header>
     <main>{% block content%}{% endblock %}</main>
-    <!-- Использованы классы бустрапа: -->
-    <!-- border-top: создаёт тонкую линию сверху блока -->
-    <!-- text-center: выравнивает текстовые блоки внутри блока по центру -->
-    <!-- py-3: контент внутри размещается с отступом сверху и снизу -->
     <footer class="border-top text-center py-3">
-      <!-- тег span используется для добавления нужных стилей отдельным участкам текста -->
       {% include "includes/footer.html" %}
     </footer>
   </body>
