@@ -9,7 +9,7 @@ def index(request):
     context = {
         'posts': posts,
     }
-    #    Post.objects.filter(pub_date__range=(start_date,end_date)).filter(text__contains=keyword)
+    #    print(Post.objects.filter(pub_date__range=(start_date,end_date)).filter(text__contains=keyword).query) qfwqfqf
     return render(request, 'posts/index.html', context)
 
 
