@@ -10,6 +10,3 @@ class CreationForm(UserCreationForm):
         model = User
         fields = ('first_name', 'last_name', 'username', 'email')
 
-
-class ChangePassword(PasswordChangeForm):
-    field_order = ['old_password', 'new_password1', 'new_password2']
